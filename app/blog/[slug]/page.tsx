@@ -1,43 +1,84 @@
-import { getPostBySlug, getPostSlugs } from "../../../lib/mdx";
+import { getPostBySlug, getPostSlugs } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import rehypeHighlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
+import styles from "./post.module.css";
+import "highlight.js/styles/github-dark.css";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
-export async function generateStaticParams() {
-  const posts = getPostSlugs();
-  return posts.map((post) => ({ slug: post.replace(/\.mdx$/, "") }));
+interface PageProps {
+  params: Promise<{
+    slug: string;
+  }>;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateStaticParams() {
+  const slugs = getPostSlugs();
+  return slugs.map((slug) => ({
+    slug: slug.replace(/\.mdx$/, ""),
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
   try {
-    const { meta } = getPostBySlug(params.slug);
-    return { title: `${meta.title} — Lee De En`, description: meta.description };
+    const post = getPostBySlug(slug);
+    return {
+      title: `${post.meta.title} — Lee De En`,
+      description: post.meta.description,
+    };
   } catch {
     return { title: "Post Not Found" };
   }
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  let post;
+export default async function Post({ params }: PageProps) {
+  const { slug } = await params;
 
+  let post;
   try {
-    post = getPostBySlug(params.slug);
+    post = getPostBySlug(slug);
   } catch {
     return notFound();
   }
 
-  const { content, meta } = post;
+  const mdxOptions = {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeHighlight], // Type cast for compatibility
+  };
 
   return (
-    <section style={{ paddingTop: "10rem", paddingBottom: "8rem", maxWidth: "800px" }}>
-      <h1 className="section-title reveal visible" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", marginBottom: "1rem" }}>{meta.title}</h1>
-      
-      <div className="project-tags reveal visible" style={{ marginBottom: "3rem" }}>
-          <span className="tag">{meta.date}</span>
+    <article className={`${styles.article} reveal visible`}>
+      <header className={styles.header}>
+        <time className={styles.date}>{post.meta.date}</time>
+        <h1 className={styles.title}>{post.meta.title}</h1>
+        <div className={styles.tags}>
+          {post.meta.tags &&
+            post.meta.tags.map((tag: string) => (
+              <span key={tag} className={styles.tag}>
+                {tag}
+              </span>
+            ))}
+        </div>
+      </header>
+
+      <div className={styles.content}>
+        <MDXRemote source={post.content || ""} options={{ mdxOptions }} />
       </div>
-      
-      <div className="reveal visible about-text" style={{ fontSize: "1.05rem", lineHeight: "2" }}>
-        <MDXRemote source={content} />
+
+      <div className={styles.cta}>
+        <h3>Ready to build something great?</h3>
+        <p>
+          Let&apos;s discuss how we can engineer a solution for your project.
+        </p>
+        <Link href="/#contact" className={styles.button}>
+          Start a Project
+        </Link>
       </div>
-    </section>
+    </article>
   );
 }

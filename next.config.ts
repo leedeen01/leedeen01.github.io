@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* You can remove 'output' and 'images' configurations here for Vercel */
 };
 
 export default nextConfig;

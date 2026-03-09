@@ -340,7 +340,7 @@ section {
   animation: fadeIn 1s 1.2s forwards;
 }
 
-section:not(#home) .scroll-hint {
+.scroll-hint {
   bottom: 1.2rem; /* Reduced from 3rem to move it downwards */
 }
 

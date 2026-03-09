@@ -3,20 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lee De En — CS @ NUS</title>
+    
+    <title>Lee De En — Computer Science Student @ NUS</title>
+    <meta name="title" content="Lee De En — Computer Science Student @ NUS" />
+    <meta name="description" content="Personal portfolio of Lee De En, a penultimate Computer Science student at the National University of Singapore specializing in web development, machine learning, and cloud solutions." />
+    <meta name="keywords" content="Lee De En, Software Engineer, Computer Science, NUS, Singapore, Web Development, Machine Learning" />
+    <meta name="author" content="Lee De En" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://YOUR_DOMAIN.com/" /> 
+    <meta property="og:title" content="Lee De En — CS @ NUS" />
+    <meta property="og:description" content="Penultimate CS student building things at the intersection of web, ML, and cloud." />
+    <meta property="og:image" content="https://YOUR_DOMAIN.com/assets/og-image.jpg" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://YOUR_DOMAIN.com/" />
+    <meta property="twitter:title" content="Lee De En — CS @ NUS" />
+    <meta property="twitter:description" content="Penultimate CS student building things at the intersection of web, ML, and cloud." />
+    <meta property="twitter:image" content="https://YOUR_DOMAIN.com/assets/og-image.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="custom_css/styles.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Lee De En",
+      "url": "https://YOUR_DOMAIN.com",
+      "jobTitle": "Software Engineering Intern",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "National University of Singapore"
+      },
+      "sameAs": [
+        "https://github.com/leedeen01",
+        "https://www.linkedin.com/in/leedeen/",
+        "https://www.instagram.com/leedeen_/"
+      ]
+    }
+    </script>
   </head>
   <body>
     <div class="cursor" id="cursor"></div>
     <div class="cursor-ring" id="cursorRing"></div>
     <div class="grid-bg"></div>
 
-    <!-- NAV -->
     <nav>
       <a href="#home" class="nav-logo"> &lt;/LeeDeEn&gt; </a>
 
@@ -35,7 +68,6 @@
       </ul>
     </nav>
 
-    <!-- HERO -->
     <section id="home">
       <p class="hero-eyebrow">CS @ NUS · Singapore</p>
       <h1 class="hero-name">
@@ -69,9 +101,7 @@
         </a>
       </div>
 
-      <!-- SOCIAL ICONS (vertical rail) -->
       <div class="hero-socials">
-        <!-- GitHub -->
         <a
           href="https://github.com/leedeen01"
           target="_blank"
@@ -84,7 +114,6 @@
             />
           </svg>
         </a>
-        <!-- LinkedIn -->
         <a
           href="https://www.linkedin.com/in/leedeen/"
           target="_blank"
@@ -97,7 +126,6 @@
             />
           </svg>
         </a>
-        <!-- Instagram -->
         <a
           href="https://www.instagram.com/"
           target="_blank"
@@ -120,7 +148,6 @@
 
     <div class="section-divider"><div class="divider-line"></div></div>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="section-header reveal">
         <span class="section-num">01.</span>
@@ -206,7 +233,6 @@
 
     <div class="section-divider"><div class="divider-line"></div></div>
 
-    <!-- TIMELINE -->
     <section id="timeline">
       <div class="section-header reveal">
         <span class="section-num">02.</span>
@@ -214,7 +240,6 @@
       </div>
 
       <div class="timeline-wrap">
-        <!-- Singapore Polytechnic -->
         <div class="tl-item reveal">
           <div class="tl-header" onclick="toggleTl(this)">
             <div class="tl-meta">
@@ -293,7 +318,6 @@
           </div>
         </div>
 
-        <!-- National Service -->
         <div class="tl-item reveal">
           <div class="tl-header" onclick="toggleTl(this)">
             <div class="tl-meta">
@@ -403,7 +427,6 @@
           </div>
         </div>
 
-        <!-- NUS (parent with nested sub-items) -->
         <div class="tl-item reveal">
           <div class="tl-header" onclick="toggleTl(this)">
             <div class="tl-meta">
@@ -445,11 +468,9 @@
                 </ul>
               </div>
 
-              <!-- SUB-TIMELINE -->
               <div class="sub-tl">
                 <div class="sub-tl-label">// During NUS</div>
 
-                <!-- KU -->
                 <div class="sub-tl-item" onclick="toggleSubTl(this)">
                   <div class="sub-tl-dot"></div>
                   <div class="sub-tl-main">
@@ -493,7 +514,6 @@
                   </div>
                 </div>
 
-                <!-- PhillipCapital -->
                 <div class="sub-tl-item" onclick="toggleSubTl(this)">
                   <div class="sub-tl-dot"></div>
                   <div class="sub-tl-main">
@@ -555,7 +575,6 @@
                   </div>
                 </div>
 
-                <!-- UT Austin -->
                 <div class="sub-tl-item" onclick="toggleSubTl(this)">
                   <div class="sub-tl-dot"></div>
                   <div class="sub-tl-main">
@@ -621,7 +640,6 @@
                   </div>
                 </div>
 
-                <!-- Toppan Ecquaria -->
                 <div class="sub-tl-item" onclick="toggleSubTl(this)">
                   <div class="sub-tl-dot"></div>
                   <div class="sub-tl-main">
@@ -670,8 +688,7 @@
                   </div>
                 </div>
               </div>
-              <!-- /sub-tl -->
-            </div>
+              </div>
           </div>
         </div>
       </div>
@@ -683,7 +700,6 @@
 
     <div class="section-divider"><div class="divider-line"></div></div>
 
-    <!-- PROJECTS -->
     <section id="projects">
       <div class="section-header reveal">
         <span class="section-num">03.</span>
@@ -741,7 +757,6 @@
 
     <div class="section-divider"><div class="divider-line"></div></div>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="section-header reveal">
         <span class="section-num">04.</span>
@@ -757,7 +772,6 @@
             Drop me a message or reach out on socials.
           </p>
           <div class="contact-links">
-            <!-- GitHub -->
             <a
               href="https://github.com/leedeen01"
               target="_blank"
@@ -776,7 +790,6 @@
               </span>
             </a>
 
-            <!-- LinkedIn -->
             <a
               href="https://www.linkedin.com/in/leedeen/"
               target="_blank"
@@ -795,7 +808,6 @@
               </span>
             </a>
 
-            <!-- Instagram -->
             <a
               href="https://www.instagram.com/leedeen_/"
               target="_blank"
@@ -842,9 +854,8 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-      <p class="footer-left"><span>Lee De En</span> &mdash; 2025</p>
+      <p class="footer-left"><span>Lee De En</span> &mdash; 2026</p>
       <ul class="footer-nav">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>

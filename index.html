@@ -19,7 +19,14 @@
     <!-- NAV -->
     <nav>
       <a href="#home" class="nav-logo"> &lt;/LeeDeEn&gt; </a>
-      <ul class="nav-links">
+
+      <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#timeline">Journey</a></li>
@@ -254,7 +261,14 @@
                   </li>
                 </ul>
 
-                <div style="display: flex; gap: 1.5rem; margin-top: 1.5rem">
+                <div
+                  style="
+                    display: flex;
+                    gap: 1rem;
+                    margin-top: 1.5rem;
+                    flex-wrap: wrap;
+                  "
+                >
                   <a
                     href="./assets/SP/Diploma_Certificate.pdf"
                     target="_blank"
@@ -915,6 +929,23 @@
       function toggleSubTl(item) {
         item.classList.toggle("open");
       }
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenuBtn.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      // Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenuBtn.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
     </script>
   </body>
 </html>

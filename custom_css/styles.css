@@ -930,7 +930,7 @@ footer {
 }
 
 .tl-item:not(:hover):not(.open) .tl-subtitle {
-  color: #a0a0a0; 
+  color: #a0a0a0;
   opacity: 0.7;
 }
 
@@ -1189,38 +1189,140 @@ footer {
   color: #a0a0a0; /* Slightly dimmed for hierarchy */
 }
 
+/* --- Add these styles BEFORE your @media query --- */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: none; /* Keeps your custom cursor */
+  z-index: 101;
+}
+
+.mobile-menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: all 0.3s ease;
+}
+
+/* Toggle Animations for Hamburger */
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--accent);
+}
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--accent);
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   nav {
     padding: 1.25rem 1.5rem;
   }
-  .nav-links {
-    gap: 1.5rem;
+
+  /* Disable custom cursor on mobile */
+  .cursor,
+  .cursor-ring {
+    display: none !important;
   }
+
+  body, 
+  a, 
+  button, 
+  .btn-primary, 
+  .btn-ghost, 
+  .btn-resume, 
+  .project-row, 
+  .btn-send, 
+  .tl-header, 
+  .sub-tl-item, 
+  .mobile-menu-btn {
+    cursor: auto !important; /* Restores default tap/click behavior */
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(13, 13, 13, 0.98);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Hides it smoothly */
+    transition: clip-path 0.4s ease;
+  }
+  
+  .nav-links.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* Fix Horizontal Scroll Overflow Causes */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .hero-actions {
+    flex-wrap: wrap; /* Prevents buttons from overflowing the screen */
+  }
+
   section,
   .section-divider,
   footer {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+
   .hero-socials {
     display: none;
   }
+
   .hero-name {
     font-size: clamp(2.8rem, 12vw, 5rem);
   }
+
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+
+  .skills-list {
+    grid-template-columns: 1fr;
+  }
+
   .project-row {
     grid-template-columns: 40px 1fr 20px;
     gap: 1rem;
   }
+  
+  /* Prevent the hover background from spilling past mobile padding */
+  .project-row::after {
+    left: -1.5rem;
+    right: -1.5rem;
+  }
+
   footer {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     text-align: center;
+  }
+  
+  .footer-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
   }
 }

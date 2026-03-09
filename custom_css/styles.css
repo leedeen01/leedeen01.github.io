@@ -344,6 +344,16 @@ section:not(#home) .scroll-hint {
   bottom: 1.2rem; /* Reduced from 3rem to move it downwards */
 }
 
+/* Ensure the scroll hint stays centered even when the reveal animation triggers */
+.scroll-hint.reveal {
+  left: 50%;
+  transform: translate(-50%, 24px); /* Starts centered but shifted down */
+}
+
+.scroll-hint.reveal.visible {
+  transform: translate(-50%, 0); /* Ends centered and at its correct height */
+}
+
 .scroll-hint span {
   font-family: var(--mono);
   font-size: 0.6rem;

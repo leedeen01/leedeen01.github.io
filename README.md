@@ -22,7 +22,7 @@ The live website is hosted here: **leedeen.me**
 This website was built using the following technologies:
 
 * **Frontend:** HTML5, CSS3, JavaScript (ES6+)
-* **Styling & Framework:** [Tailwind CSS / Bootstrap / React]
-* **Deployment:** [Netlify / Vercel / GitHub Pages]
+* **Styling & Framework:** [Tailwind CSS / React]
+* **Deployment:** [GitHub Pages]
 * **Contact Form Service:** [Formspree]
 * **Icons:** [Font Awesome / Heroicons]

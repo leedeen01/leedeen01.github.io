@@ -6,8 +6,6 @@
   --accent-dim: rgba(240, 184, 110, 0.08);
   --text: #efefef;
   --muted: #909090;
-  --mono: "DM Mono", monospace;
-  --sans: "Syne", sans-serif;
 }
 
 *,
@@ -697,7 +695,7 @@ section {
   color: var(--accent);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .form-input {
   width: 100%;

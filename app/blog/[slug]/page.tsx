@@ -1,4 +1,4 @@
-import { getPostBySlug, getPostSlugs, getAllPosts } from "@/lib/mdx"; // Added getAllPosts
+import { getPostBySlug, getPostSlugs, getAllPosts } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
@@ -64,11 +64,11 @@ export default async function Post({ params }: PageProps) {
   const allPosts = getAllPosts();
   const relatedPosts = allPosts
     .filter((p) => p.meta.category === post.meta.category && p.slug !== slug)
-    .slice(0, 2); // Show top 2 related posts
+    .slice(0, 2); 
 
   const mdxOptions = {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeHighlight as any], 
+    rehypePlugins: [rehypeHighlight], 
   };
 
   const categoryClass = typeof post.meta.category === 'string' 
@@ -105,12 +105,11 @@ export default async function Post({ params }: PageProps) {
         />
       </div>
 
-      {/* REPLACED CTA: Continue Reading Section */}
       <footer className={styles.blogFooter}>
         {relatedPosts.length > 0 && (
           <div className={styles.relatedSection}>
             <div className={styles.relatedHeader}>
-              <span className={styles.relatedNum}>// 06.</span>
+              <span className={styles.relatedNum}>{"//"} 06.</span>
               <h3 className={styles.relatedTitle}>Continue Reading</h3>
             </div>
             

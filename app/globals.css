@@ -1324,3 +1324,132 @@ footer {
     gap: 1.5rem;
   }
 }
+
+/* Blog Category Tabs */
+.blog-tabs {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.tab-btn.active {
+  color: var(--accent);
+}
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* Category Tags */
+.tag-systems {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  margin-left: 1rem;
+  color: #c4a8f5; /* Systems/Exchange Purple */
+  border: 1px solid rgba(196, 168, 245, 0.3);
+  padding: 2px 8px;
+}
+
+.tag-tech {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  margin-left: 1rem;
+  color: var(--accent); /* Tech/Accent Orange */
+  border: 1px solid var(--accent-dim);
+  padding: 2px 8px;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* This creates the side-by-side look */
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.comp-card {
+  padding: 1.5rem;
+  background: var(--surface); /* This gives it the "card" look */
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.comp-card.highlight {
+  border-color: var(--accent); /* Makes Clara's card stand out */
+}
+
+/* Simmer Progress Card */
+.simmer-card {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  background: linear-gradient(to bottom right, var(--surface), transparent);
+  margin: 2.5rem 0;
+}
+
+.simmer-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+.simmer-title { color: var(--accent); }
+.simmer-percent { color: var(--muted); }
+
+.simmer-bar-bg {
+  height: 2px;
+  background: var(--border);
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.simmer-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.simmer-content {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Directory Tree (PARA Method) */
+.directory-tree {
+  font-family: var(--mono);
+  padding: 1.5rem;
+  background: var(--surface);
+  border-left: 2px solid var(--accent);
+  font-size: 0.85rem;
+  line-height: 2.2;
+  margin: 2rem 0;
+}
+
+.directory-tree strong {
+  color: var(--accent);
+}
+
+.directory-tree small {
+  color: var(--muted);
+  margin-left: 0.5rem;
+}
